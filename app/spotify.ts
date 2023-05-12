@@ -1,17 +1,13 @@
-require('dotenv').config()
-
 const { stringify } = require('querystring')
 
-const {
-  SPOTIFY_CLIENT_ID: client_id,
-  SPOTIFY_CLIENT_SECRET: client_secret,
-  SPOTIFY_REFRESH_TOKEN: refresh_token,
-} = process.env
+const client_id = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID 
+const client_secret =  process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET 
+const refresh_token = process.env.NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN
 
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64')
 
 const EndpointGetToken = 'https://accounts.spotify.com/api/token'
-const EndpointGetTopTopTracks = 'https://api.spotify.com/v1/me/top/tracks'
+const EndpointGetTopTopTracks = 'https://api.spotify.com/v1/artists/1Ngynwc6bFIKGzRcOrBAnx/albums'
 
 const getAccessToken = async () => {
   const resp = await fetch(EndpointGetToken, {
@@ -27,10 +23,11 @@ const getAccessToken = async () => {
   })
   return resp.json()
 }
-exports.getTopTracks = async function getTopTracks() {
+
+async function getTopTracks(){
   const { access_token } = await getAccessToken()
 
-  const resp = await fetch(`${EndpointGetTopTopTracks}?time_range=short_term`, {
+  const resp = await fetch(`${EndpointGetTopTopTracks}?include_groups=single`, {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
@@ -44,3 +41,5 @@ exports.getTopTracks = async function getTopTracks() {
 //   const data = await resp.json()
 //   console.log(data)
 // })()
+
+export { getTopTracks }

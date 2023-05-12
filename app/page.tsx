@@ -4,10 +4,10 @@
 import React from "react"
 import HeadingTitle from "../components/headingTitle"
 import LanguagesTitle from "../components/languagesTitle"
-import ProjectsTitle from "../components/projectsTitle"
+import MusicTitle from "../components/musicTitle"
 
 export default function IndexPage() {
-
+  
   return (
       <section className="container grid items-center gap-24 pb-8 pt-6 sm:gap-48 md:py-10">
         {/* ---=== HEADING ===--- */}
@@ -17,7 +17,7 @@ export default function IndexPage() {
         <LanguagesTitle />
 
         {/* ---=== PROJECTS ===--- */}
-        <ProjectsTitle />
+        <MusicTitle />
       </section>
   )
 }
