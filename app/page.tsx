@@ -3,7 +3,7 @@
 <span className="bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent ">CSS </span> */}
 import React from "react"
 import HeadingTitle from "../components/headingTitle"
-import LanguagesTitle from "../components/languagesTitle"
+import GenresTitle from "../components/genresTitle"
 import MusicTitle from "../components/musicTitle"
 
 export default function IndexPage() {
@@ -14,7 +14,7 @@ export default function IndexPage() {
         <HeadingTitle />
 
         {/* ---=== LANGUAGES PT.1 ===--- */}
-        <LanguagesTitle />
+        <GenresTitle />
 
         {/* ---=== PROJECTS ===--- */}
         <MusicTitle />

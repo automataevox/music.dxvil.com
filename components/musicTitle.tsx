@@ -36,7 +36,7 @@ export default function MusicTitle() {
                   alt={song.name}
                   artistName={song.artists.map((a: { name: any }) => a.name)}
                   releaseName={song.name}
-                  streamUrl={song.href}
+                  streamUrl={song.external_urls.spotify}
                 />
               )
           }) 

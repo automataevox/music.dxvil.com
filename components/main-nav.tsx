@@ -16,7 +16,7 @@ export function MainNav({ items }: MainNavProps) {
   const [gitData, setGitData] = React.useState<undefined | any>(undefined)
 
   if(!gitData) {
-    fetch(`https://api.github.com/repos/suishounohibiki/dxvil.com/commits`).then(async res => {
+    fetch(`https://api.github.com/repos/suishounohibiki/music.dxvil.com/commits`).then(async res => {
       setGitData(await res.json())
     }).catch(e => console.log(e));
   }
